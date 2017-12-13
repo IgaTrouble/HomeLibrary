@@ -1,9 +1,10 @@
 
-create database library;
-use library;
+#create database library;
+#drop database library;
+#use library;
 
 CREATE TABLE osoby (
-	id_osoby int,
+	id_osoby int auto_increment,
     name varchar (25) NOT NULL,
     last varchar(25) NOT NULL,
     login varchar(25) NOT NULL,
@@ -13,35 +14,42 @@ CREATE TABLE osoby (
 );
 
 create table lokalizacja (
-id_lok int,
+id_lok int auto_increment,
 miejsce varchar(30),
 opis varchar(100),
 primary key (id_lok)
 );
 
 create table gatunek (
-id_gat int,
+id_gat int auto_increment,
 gatunek varchar(30),
 primary key (id_gat)
 );
 
 create table role (
-id_roli int,
+id_roli int auto_increment,
 rola varchar(10),
 primary key (id_roli)
 );
 
 create table wydawnictwo (
-id_wyd int,
+id_wyd int auto_increment,
 name_wyd varchar(200),
 primary key(id_wyd)
 );
 
 create table stan (
-id_stan int,
+id_stan int auto_increment,
 stan varchar(50),
 primary key(id_stan)
 );
+
+create table sklep (
+id_sklepu int auto_increment,
+sklep varchar(30),
+primary key(id_sklepu)
+);
+
 
 create table osoba_rola (
 id_osoby int,
@@ -51,17 +59,19 @@ foreign key(id_roli) references role(id_roli)
 );
 
 CREATE table books (
-	id_book int,
+	id_book int auto_increment,
 	title varchar(150) NOT NULL,
     author varchar(150) NOT NULL,
     wyd int,
     ISBN varchar(50),
     price double(5,2),
-    stan int,
-    lokalizacja int,
+    stan int default 1,
+    sklep int default 1,
+    lokalizacja int default 1,
     primary key(id_book),
     foreign key(wyd) references wydawnictwo(id_wyd),
     foreign key(stan) references stan(id_stan),
+    foreign key(sklep) references sklep(id_sklepu),
 	foreign key(lokalizacja) references lokalizacja(id_lok)
 );
 
@@ -74,7 +84,7 @@ foreign key(id_book) references books(id_book)
 );
 
 create table prezent (
-id int,
+id int auto_increment,
 id_book int,
 osoba varchar(250),
 opis varchar(250),
@@ -83,7 +93,7 @@ foreign key(id_book) references books(id_book)
 );
 
 create table pozyczone (
-id int,
+id int auto_increment,
 id_book int,
 osoba varchar(250),
 data date,
@@ -95,10 +105,11 @@ foreign key(id_book) references books(id_book)
 
 
 create table przeczytana (
-id int,
+id int auto_increment,
 id_book int,
 id_osoby int,
 data date,
+koszyk boolean,
 opis varchar(250),
 primary key(id),
 foreign key(id_book) references books(id_book),
