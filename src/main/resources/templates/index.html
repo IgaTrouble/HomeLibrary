@@ -6,7 +6,7 @@
 </head>
 <body>
 	Lista książek
-	<table>
+	<table class=books>
 		<tr>
 			<th>ID</th>
 			<th>Tytuł</th>
@@ -14,6 +14,9 @@
 			<th>Wydawnictwo</th>
 			<th>ISBN</th>
 			<th>Cena</th>
+			<th>Stan</th>
+			<th>Skąd</th>
+			<th>Lokalizacja</th>
 		</tr>
 		<tr th:each="book : ${books}">
 			<td th:text="${book.id}"></td>
@@ -22,6 +25,9 @@
 			<td th:text="${book.wyd}"></td>
 			<td th:text="${book.ISBN}"></td>
 			<td th:text="${book.price}"></td>
+			<td th:text="${book.stan}"></td>
+			<td th:text="${book.sklep}"></td>
+			<td th:text="${book.lokalizacja}"></td>
 		</tr>
 	</table>
 </body>

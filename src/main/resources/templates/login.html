@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Login</title>
+</head>
+<body>
+<p> Strona logowania do domowej biblioteki </p>
+
+	<form th:action="@{login}" method="post">
+	
+<div th:if="${param.error}">
+Błędny login lub hasło, spróbuj ponownie.
+</div>	
+		<input type="text" id="login" name="login" placeholder="login" /> 
+		<input type="password" id="pass" name="pass" placeholder = "hasło" /> 
+		<input type="submit" value="zaloguj"/>
+		
+	</form>
+
+</body>
+</html>

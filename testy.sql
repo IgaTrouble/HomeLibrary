@@ -10,3 +10,4 @@ ALTER TABLE logowanie change column nazzwisko nazwisko varchar(30);
 alter table logowanie MODIFY nazwisko VARCHAR(20)  AFTER imie;
 
 alter table logowanie MODIFY login varchar(20)  AFTER pass;
+

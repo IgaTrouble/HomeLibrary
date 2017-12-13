@@ -21,7 +21,7 @@ public class BibliotekaSpringApplication {
 		
 		BibRepository bibRepository = ctx.getBean(BibRepository.class);
 		
-		saveBook(ctx);
+		//saveBook(ctx);
 		
 		System.out.println("Lista wszystkich książek");
 		bibRepository.findAll().forEach(System.out::println);
@@ -33,12 +33,11 @@ public class BibliotekaSpringApplication {
 		
 	}	
 		
-	private static void saveBook(ConfigurableApplicationContext ctx) {
+	/*private static void saveBook(ConfigurableApplicationContext ctx) {
 		List<Book> books = new ArrayList<>();
-		books.add(new Book("Elo", "Melo", "Coś tam", 23.00));
-			
+	
 		BibRepository bibRepository = ctx.getBean(BibRepository.class);
 		}
-		
+		*/
 	
 }
