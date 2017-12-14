@@ -1,7 +1,7 @@
 
-#create database library;
-#drop database library;
-#use library;
+drop database library;
+create database library;
+use library;
 
 CREATE TABLE osoby (
 	id_osoby int auto_increment,

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
@@ -40,8 +41,10 @@ public class Osoby {
 	
 
 	@ManyToMany
-	@JoinTable(name="osoba_rola")
-	private Set<Role> roles;
+	@JoinTable(name="osoba_rola", joinColumns=
+		@JoinColumn(name="id_osoby", referencedColumnName="id_osoby"),
+		inverseJoinColumns = @JoinColumn(name="id_roli", referencedColumnName="id_roli"))
+	private Set<Role> rola;
 	
 
 	public Osoby() {
@@ -52,7 +55,7 @@ public class Osoby {
 	@Override
 	public String toString() {
 		return "Osoby [id=" + id + ", login=" + login + ", pass=" + pass + ", name=" + name + ", last=" + last
-				+ ", active=" + active + ", roles=" + roles + "]";
+				+ ", active=" + active + ", rola=" + rola + "]";
 	}
 
 
@@ -116,13 +119,13 @@ public class Osoby {
 	}
 
 
-	public Set<Role> getRoles() {
-		return roles;
+	public Set<Role> getRole() {
+		return rola;
 	}
 
 
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
+	public void setRole(Set<Role> role) {
+		this.rola = role;
 	}
 
 
@@ -134,7 +137,7 @@ public class Osoby {
 		this.name = name;
 		this.last = last;
 		this.active = active;
-		this.roles = roles;
+		this.rola = rola;
 	}
 
 
@@ -145,7 +148,7 @@ public class Osoby {
 		this.name = name;
 		this.last = last;
 		this.active = active;
-		this.roles = roles;
+		this.rola = rola;
 	}
 
 	

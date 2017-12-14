@@ -19,7 +19,7 @@ public class BibliotekaSpringApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext ctx = SpringApplication.run(BibliotekaSpringApplication.class, args);
 		
-		BibRepository bibRepository = ctx.getBean(BibRepository.class);
+	/*	BibRepository bibRepository = ctx.getBean(BibRepository.class);
 		
 		//saveBook(ctx);
 		
@@ -33,11 +33,13 @@ public class BibliotekaSpringApplication {
 		
 	}	
 		
-	/*private static void saveBook(ConfigurableApplicationContext ctx) {
+	private static void saveBook(ConfigurableApplicationContext ctx) {
 		List<Book> books = new ArrayList<>();
 	
 		BibRepository bibRepository = ctx.getBean(BibRepository.class);
 		}
 		*/
 	
+}
+
 }

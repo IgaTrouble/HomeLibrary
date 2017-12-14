@@ -2,6 +2,10 @@ insert into role(rola) values ("admin"), ("user");
 insert into sklep(sklep) values ("Bonito"), ("Allegro"), ("Empik"), ("Targi");
 insert into lokalizacja(miejsce) values ("Aleje"), ("Kinowa"), ("Gdańsk");
 insert into stan(stan) values ("w domu"), ("pożyczona"), ("oddana"), ("prezent");
+insert into osoby(name, last, login, pass, active) values ("Iga", "Konińska", "iga.koninska@gmail.com", "admin", 1), 
+("Alicja", "Konińska", "miga5@wp.pl", "kolnierz5", 1);
+insert into osoba_rola(id_osoby, id_roli) values (1, 1), (2,2);
+select * from sklep;
 insert into wydawnictwo(name_wyd) values ("Format"),
 ("Babaryba"),
 ("Pascal"),

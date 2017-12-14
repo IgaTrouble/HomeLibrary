@@ -21,12 +21,12 @@ public class BibController {
 		this.bibService = bibService;
 	}
 	
-	@RequestMapping("/")
+	@RequestMapping("/books")
 	public String home(Model model) {
 		List <Book> books = bibService.findAll();
 		model.addAttribute("books", books);
 		System.out.println(books);
-		return "index";
+		return "books";
 	}
 	
 

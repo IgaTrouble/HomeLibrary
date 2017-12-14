@@ -13,19 +13,19 @@
 			<input type="text" placeholder="Podaj imię" th:field="*{name}" />
 		</p>
 		<p>
-		<label th:if="${#fields.hasErrors('lastName')}" th:errors="*{last}"> </label><br/>
+		<label th:if="${#fields.hasErrors('last')}" th:errors="*{last}"> </label><br/>
 			<input type="text" placeholder="Podaj nazwisko"
-				th:field="*{lastName}" />
+				th:field="*{last}" />
 		</p>
 		<p>
-			<label th:if="${#fields.hasErrors('email')}" th:errors="*{login}"> </label><br/>
+			<label th:if="${#fields.hasErrors('login')}" th:errors="*{login}"> </label><br/>
 			<input type="email" placeholder="Podal login(e-mail)"
-				th:field="*{email}" />
+				th:field="*{login}" />
 		</p>
 		<p>
-			<label th:if="${#fields.hasErrors('password')}" th:errors="*{password}"> </label><br/>
+			<label th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}"> </label><br/>
 			<input type="password" placeholder="Podaj hasło"
-				th:field="*{password}" />
+				th:field="*{pass}" />
 		</p>
 		<p>
 			<button type="submit" >Registered User</button>

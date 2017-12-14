@@ -3,32 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <title>Lista</title>
+
 </head>
 <body>
-	Lista książek
-	<table class=books>
-		<tr>
-			<th>ID</th>
-			<th>Tytuł</th>
-			<th>Autor</th>
-			<th>Wydawnictwo</th>
-			<th>ISBN</th>
-			<th>Cena</th>
-			<th>Stan</th>
-			<th>Skąd</th>
-			<th>Lokalizacja</th>
-		</tr>
-		<tr th:each="book : ${books}">
-			<td th:text="${book.id}"></td>
-			<td th:text="${book.title}"></td>
-			<td th:text="${book.author}"></td>
-			<td th:text="${book.wyd}"></td>
-			<td th:text="${book.ISBN}"></td>
-			<td th:text="${book.price}"></td>
-			<td th:text="${book.stan}"></td>
-			<td th:text="${book.sklep}"></td>
-			<td th:text="${book.lokalizacja}"></td>
-		</tr>
-	</table>
+	<h1>HOME</h1>
+	<a href="/login"> Login</a>
+	<br />
+	<a href="/rejestracja"> Registration</a>
+	<br />
+	<a href="/books"> Lista Książek</a>
+	<br />
+	<div th:if="${isAdmin}">
+	<a href="/admin/config"> Configuration</a>
+	</div>
+	<br />
+	<div th:if="${isLogin}">
+		<p th:text="${userLogin}" />
+		<br />
+		<form th:action="@{/logout}" method="post">
+
+			<input type="submit" value="Logout" />
+
+	</form>
+		</div>
 </body>
 </html>
