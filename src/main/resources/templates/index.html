@@ -3,28 +3,38 @@
 <head>
 <meta charset="UTF-8" />
 <title>Lista</title>
-
+<div th:replace="fragment/headerinc ::head"></div>
 </head>
 <body>
+<header>
+		<div th:replace="fragment/header :: header"></div>
+	</header>
 	<h1>HOME</h1>
-	<a href="/login"> Login</a>
+	<a href="/login"> Logowanie</a>
 	<br />
-	<a href="/rejestracja"> Registration</a>
+	<a href="/rejestracja"> Rejestracja</a>
 	<br />
-	<a href="/books"> Lista Książek</a>
+	<a href="book/books"> Lista Książek</a>
 	<br />
 	<div th:if="${isAdmin}">
-	<a href="/admin/config"> Configuration</a>
+	<a href="/admin/config"> Konfiguracja</a>
+	<a href="/admin/osoby">Osoby</a>
+	
 	</div>
 	<br />
 	<div th:if="${isLogin}">
-		<p th:text="${userLogin}" />
+		<p th:text="${osobyLogin}" />
+		<a href="book/addBook">Dodaj książkę</a>
+		
 		<br />
 		<form th:action="@{/logout}" method="post">
 
 			<input type="submit" value="Logout" />
 
-	</form>
-		</div>
+		</form>
+	</div>
+		<footer>
+		<div th:replace="fragment/footer :: footer"></div>
+	</footer>
 </body>
 </html>

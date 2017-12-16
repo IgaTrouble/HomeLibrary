@@ -5,7 +5,6 @@ insert into stan(stan) values ("w domu"), ("pożyczona"), ("oddana"), ("prezent"
 insert into osoby(name, last, login, pass, active) values ("Iga", "Konińska", "iga.koninska@gmail.com", "admin", 1), 
 ("Alicja", "Konińska", "miga5@wp.pl", "kolnierz5", 1);
 insert into osoba_rola(id_osoby, id_roli) values (1, 1), (2,2);
-select * from sklep;
 insert into wydawnictwo(name_wyd) values ("Format"),
 ("Babaryba"),
 ("Pascal"),
@@ -318,3 +317,7 @@ insert into books(title, author, wyd, ISBN, price) values ("Szczęśliwi rodzice
 ("Galeria szubrawców. Narodziny (i sporadyczne upadki) profesji marszandów, ukrytych aktorów na scenie dziejów sztuki","Philip Hook",9," 978-83-240-4989-9",29.86),
 ("Piosenka musi posiadać tekst. I muzykę. 200 najważniejszych utworów polskiego rocka","Jan Skaradziński, Konrad Wojciechowski",64," 9788364373541",66.43),
 ("Gala-Dali","Carmen Domingo",17," 978-83-8031-654-6",26.30);
+insert into gatunek(gatunek) values ("biografia"), ("reportaż");
+insert into books_gat values (241, 1), (241, 2), (242, 1);
+
+select * from books_gat;

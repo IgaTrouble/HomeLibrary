@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Lista</title>
+<link href="../static/style/books.css"
+          th:href="@{/style/books.css}" rel="stylesheet" media="screen"/>
+
+</head>
+<body>
+<h1>	Dodawanie książek </h1>
+	<form th:action="@{/addBook}" method="post" th:object="${books}">
+	<p>
+		<label th:if="${#fields.hasErrors('title')}" th:errors="*{title}"> </label><br/>
+			<input type="text" placeholder="Podaj tytuł książki" th:field="*{title}" />
+		</p>
+		<p>
+		<label th:if="${#fields.hasErrors('author')}" th:errors="*{author}"> </label><br/>
+			<input type="text" placeholder="Podaj autora książki"
+				th:field="*{author}" />
+		</p>
+		<p>
+			<button type="submit" >Dodaj książkę</button>
+		</p>
+	</form>
+	
+	<span th:utext="${successMessage}"></span>
+
+	
+	
+	
+</body>
+</html>

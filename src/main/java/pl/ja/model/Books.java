@@ -1,20 +1,26 @@
 package pl.ja.model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="books")
-public class Book {
+@Table
+public class Books {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_book")
-	private Integer id;
+	private Long id;
 
 	private String title;
 	private String author;
@@ -25,11 +31,41 @@ public class Book {
 	private Integer sklep;
 	private Integer lokalizacja;
 
-	public Book() {
+	@ManyToMany //(fetch=FetchType.EAGER)
+	@JoinTable(name="books_gat", joinColumns=
+		@JoinColumn(name="id_book", referencedColumnName="id_book"),
+		inverseJoinColumns = @JoinColumn(name="id_gat", referencedColumnName="id_gat"))
+	private Set<Gatunek> gatunek;
+	
+	
+	public Set<Gatunek> getGatunek() {
+		return gatunek;
+	}
+
+	public void setGatunek(Set<Gatunek> gatunek) {
+		this.gatunek = gatunek;
+	}
+
+	public Books(Long id, String title, String author, String wyd, String iSBN, Double price, Integer stan,
+			Integer sklep, Integer lokalizacja, Set<Gatunek> gatunek) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.author = author;
+		this.wyd = wyd;
+		ISBN = iSBN;
+		this.price = price;
+		this.stan = stan;
+		this.sklep = sklep;
+		this.lokalizacja = lokalizacja;
+		this.gatunek = gatunek;
+	}
+
+	public Books() {
 		super();
 	}
 
-	public Book(String title, String author, String wyd, String iSBN, Double price, Integer stan, Integer sklep,
+	public Books(String title, String author, String wyd, String iSBN, Double price, Integer stan, Integer sklep,
 			Integer lokalizacja) {
 		super();
 		this.title = title;
@@ -42,11 +78,11 @@ public class Book {
 		this.lokalizacja = lokalizacja;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -116,8 +152,9 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", wyd=" + wyd + ", ISBN=" + ISBN
-				+ ", price=" + price + ", stan=" + stan + ", sklep=" + sklep + ", lokalizacja=" + lokalizacja + "]";
+		return "Books [id=" + id + ", title=" + title + ", author=" + author + ", wyd=" + wyd + ", ISBN=" + ISBN
+				+ ", price=" + price + ", stan=" + stan + ", sklep=" + sklep + ", lokalizacja=" + lokalizacja
+				+ ", gatunek=" + gatunek + "]";
 	}
 
 }

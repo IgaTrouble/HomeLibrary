@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
-import pl.ja.model.Book;
+import pl.ja.model.Books;
 import pl.ja.repository.BibRepository;
 
 @ComponentScan

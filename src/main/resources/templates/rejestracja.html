@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h1>Strona Rejestracji</h1>
-	<form th:action="@{/registration}" method="post" th:object="${osoba}">
+	<form th:action="@{/rejestracja}" method="post" th:object="${osoby}">
 
 		<p>
 		<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"> </label><br/>
@@ -28,7 +28,7 @@
 				th:field="*{pass}" />
 		</p>
 		<p>
-			<button type="submit" >Registered User</button>
+			<button type="submit" >Zarejestruj użytkownika</button>
 		</p>
 	</form>
 	

@@ -13,7 +13,8 @@ public class AuthenticationComponent {
 	
 	public boolean isAnonymous() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		return (auth!=null && auth.isAuthenticated() && "anonymouserUser".equals(auth.getName()));	
+
+		return (auth!=null && auth.isAuthenticated() && "anonymousUser".equals(auth.getName()));	
 	}
 	
 	public String loginUser() {

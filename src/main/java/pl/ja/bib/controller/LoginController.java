@@ -2,7 +2,7 @@ package pl.ja.bib.controller;
 
 import javax.validation.Valid;
 
-import org.hibernate.engine.transaction.jta.platform.internal.SynchronizationRegistryBasedSynchronizationStrategy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,23 +43,23 @@ public class LoginController {
 	
 	@GetMapping("/rejestracja")
 	public String rejestracja(Model model) {
-		model.addAttribute("osoba", new Osoby());
+		model.addAttribute("osoby", new Osoby());
 		return "rejestracja";
 	}	
 	
 	@PostMapping("/rejestracja")
-	public String rejestracja (@Valid @ModelAttribute Osoby osoba, BindingResult result, Model model) {
+	public String rejestracja (@Valid @ModelAttribute Osoby osoby, BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			return "rejestracja";
 		}
-		if(osobaService.OsobaIstnieje(osoba.getLogin())) {
+		if(osobaService.OsobaIstnieje(osoby.getLogin())) {
 			result.rejectValue("login", "error.user.exist", "Masz już konto w Domowej bibliotece");
 			return "rejestracja";
 		}
-		Osoby savedOsoba = osobaService.addUserwithRoleUser(osoba);
+		Osoby savedOsoba = osobaService.addUserwithRoleUser(osoby);
 		System.out.println("Zapisano nową osobę");
 		model.addAttribute("successMesage", "Poprawnie założyłeś konto, zostałeś zapisany w Domowej bibliotece");
-		model.addAttribute("osoba", new Osoby());
+		model.addAttribute("osoby", new Osoby());
 		return "rejestracja";
 	}
 }

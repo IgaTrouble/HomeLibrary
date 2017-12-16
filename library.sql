@@ -59,7 +59,7 @@ foreign key(id_roli) references role(id_roli)
 );
 
 CREATE table books (
-	id_book int auto_increment,
+	id_book bigint auto_increment,
 	title varchar(150) NOT NULL,
     author varchar(150) NOT NULL,
     wyd int,
@@ -77,7 +77,7 @@ CREATE table books (
 
 
 create table books_gat (
-id_book int,
+id_book bigint,
 id_gat int,
 foreign key(id_gat) references gatunek(id_gat),
 foreign key(id_book) references books(id_book)
@@ -85,7 +85,7 @@ foreign key(id_book) references books(id_book)
 
 create table prezent (
 id int auto_increment,
-id_book int,
+id_book bigint,
 osoba varchar(250),
 opis varchar(250),
 primary key(id),
@@ -94,7 +94,7 @@ foreign key(id_book) references books(id_book)
 
 create table pozyczone (
 id int auto_increment,
-id_book int,
+id_book bigint,
 osoba varchar(250),
 data date,
 oddana boolean,
@@ -106,7 +106,7 @@ foreign key(id_book) references books(id_book)
 
 create table przeczytana (
 id int auto_increment,
-id_book int,
+id_book bigint,
 id_osoby int,
 data date,
 koszyk boolean,
