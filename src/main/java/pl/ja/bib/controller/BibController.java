@@ -86,7 +86,7 @@ public class BibController {
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable Long id) {
 		bibService.deleteBook(id);
-		return "redirect:/article/articles";
+		return "redirect:/book/books";
 	}
 
 }

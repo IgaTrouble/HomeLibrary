@@ -10,6 +10,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GeneratorType;
 
 @Entity
+@Table(name="gatunek")
 public class Gatunek {
 	
 	@Id

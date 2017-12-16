@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table
 public class Books {
@@ -21,8 +23,9 @@ public class Books {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_book")
 	private Long id;
-
+	@NotEmpty(message="{pl.ja.notEmpty}")
 	private String title;
+	@NotEmpty(message="{pl.ja.notEmpty}")
 	private String author;
 	private String wyd;
 	private String ISBN;
@@ -31,11 +34,15 @@ public class Books {
 	private Integer sklep;
 	private Integer lokalizacja;
 
-	@ManyToMany //(fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="books_gat", joinColumns=
 		@JoinColumn(name="id_book", referencedColumnName="id_book"),
 		inverseJoinColumns = @JoinColumn(name="id_gat", referencedColumnName="id_gat"))
 	private Set<Gatunek> gatunek;
+	
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(name="przeczytana")
+	private Set<Przeczytana> przeczytana;
 	
 	
 	public Set<Gatunek> getGatunek() {
@@ -156,5 +163,15 @@ public class Books {
 				+ ", price=" + price + ", stan=" + stan + ", sklep=" + sklep + ", lokalizacja=" + lokalizacja
 				+ ", gatunek=" + gatunek + "]";
 	}
+
+	public Books(String title, String author, Set<Gatunek> gatunek) {
+		super();
+		this.title = title;
+		this.author = author;
+		this.gatunek = gatunek;
+	}
+	
+	
+	
 
 }

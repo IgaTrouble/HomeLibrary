@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <title>Lista</title>
-<link href="../static/style/books.css"
-          th:href="@{/style/books.css}" rel="stylesheet" media="screen"/>
+<div th:replace="fragment/headerinc ::head"></div>
 
 </head>
 <body>
+<div th:replace="fragment/header :: header"></div>
 <h1>	Dodawanie książek </h1>
-	<form th:action="@{/addBook}" method="post" th:object="${books}">
+	<form th:action="@{/book/addBook}" method="post" th:object="${books}">
 	<p>
 		<label th:if="${#fields.hasErrors('title')}" th:errors="*{title}"> </label><br/>
 			<input type="text" placeholder="Podaj tytuł książki" th:field="*{title}" />
@@ -19,6 +19,16 @@
 			<input type="text" placeholder="Podaj autora książki"
 				th:field="*{author}" />
 		</p>
+		<p>
+		<ul>
+			<li th:each="gatunek : ${allGatunek}"><input type="checkbox"
+				th:field="*{gatunek}" th:value="${gatunek.id}" /> <label
+				th:for="${#ids.prev('gatunek')}"
+				th:text="${gatunek.gatunek}">Gatunek</label></li>
+		</ul>
+		</p>
+		
+		
 		<p>
 			<button type="submit" >Dodaj książkę</button>
 		</p>

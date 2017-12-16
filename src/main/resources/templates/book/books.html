@@ -29,12 +29,14 @@
 				<td th:text="${page.number-1}*${page.size}+${s.count}"></td>
 				<!-- <td th:text="${book.id}"></td> -->
 				<td th:text="${book.title}"></td>
+				<td th:text="${book.author}"></td>
 				<td>
-				<p th:each="gatunek: ${books.gatunek}" th:text="${gatunek.gatunek}"> Gatunek </p>
+				<p th:each="gatunek: ${book.gatunek}" th:text="${gatunek.gatunek}"> Gatunek </p>
 				</td>
-				<td><a th:text="${'/books/' + books.id}">Widok </a></td>
-				<td  th:if="${isLogin}"><a th:href="${'/books/edit/' + books.id}">Edycja</a></td>
-				<td  th:if="${isAdmin}"><a th:href="${'/books/delete/' + books.id}">Usuń książkę</a></td>
+				<td> przeczytana</td>
+				<td><a th:href="${'/book/' + book.id}">Widok </a></td>
+				<td  th:if="${isLogin}"><a th:href="${'/book/edit/' + book.id}">Edycja</a></td>
+				<td  th:if="${isAdmin}"><a th:href="${'/book/delete/' + book.id}">Usuń książkę</a></td>
 				
 			</tr>
 		</table>
@@ -76,10 +78,5 @@
 	<footer>
 		<div th:replace="fragment/footer :: footer"></div>
 	</footer>
-<script>
-function runningFormatter(value, row, index) {
-    return index;
-}
-</script>
 </body>
 </html>
