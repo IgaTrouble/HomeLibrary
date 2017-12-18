@@ -20,6 +20,7 @@ import pl.ja.model.Books;
 import pl.ja.security.AuthenticationComponent;
 import pl.ja.service.BibService;
 import pl.ja.service.GatunekService;
+import pl.ja.service.OsobaService;
 
 
 @Controller
@@ -28,14 +29,16 @@ public class BibController {
 	
 	private BibService bibService;
 	private GatunekService gatunekService;
+	private OsobaService osobaService;
 	private AuthenticationComponent authentication;
 	
 	@Autowired
 	public BibController(BibService bibService, GatunekService gatunekService, 
-			AuthenticationComponent authentication) {
+			AuthenticationComponent authentication, OsobaService osobaService) {
 		this.bibService = bibService;
 		this.gatunekService = gatunekService;
 		this.authentication = authentication;
+		this.osobaService = osobaService;
 	}
 	
 	@RequestMapping("/books")
@@ -88,5 +91,14 @@ public class BibController {
 		bibService.deleteBook(id);
 		return "redirect:/book/books";
 	}
-
+	
+	@GetMapping("/przeczytane")
+	public String przeczytane(Model model) {
+		model.addAttribute("isLogin", !authentication.isAnonymous());
+		if (!authentication.isAnonymous()) {
+			model.addAttribute("osobyLogin", authentication.loginUser());
+		model.addAttribute("przeczytane", osobaService.showPrzeczytane(authentication.loginUser()));
+	}
+		return "book/przeczytane";
+	}
 }

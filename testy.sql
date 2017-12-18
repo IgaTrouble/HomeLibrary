@@ -4,6 +4,8 @@ alter table logowanie add imie varchar(20);
 alter table logowanie add nazzwisko varchar(20);
 select * from logowanie;
 
+select * from osoby;
+
 ALTER TABLE logowanie MODIFY imie VARCHAR(20) after login;
 ALTER TABLE logowanie change column nazzwisko nazwisko varchar(30);
 

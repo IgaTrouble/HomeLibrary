@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -27,7 +28,7 @@ public class Books {
 	private String title;
 	@NotEmpty(message="{pl.ja.notEmpty}")
 	private String author;
-	private String wyd;
+	private Integer wyd;
 	private String ISBN;
 	private Double price;
 	private Integer stan;
@@ -40,11 +41,21 @@ public class Books {
 		inverseJoinColumns = @JoinColumn(name="id_gat", referencedColumnName="id_gat"))
 	private Set<Gatunek> gatunek;
 	
-	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinTable(name="przeczytana")
+	@OneToMany(mappedBy="book")
 	private Set<Przeczytana> przeczytana;
 	
 	
+	
+	
+	
+	public Set<Przeczytana> getPrzeczytana() {
+		return przeczytana;
+	}
+
+	public void setPrzeczytana(Set<Przeczytana> przeczytana) {
+		this.przeczytana = przeczytana;
+	}
+
 	public Set<Gatunek> getGatunek() {
 		return gatunek;
 	}
@@ -53,14 +64,14 @@ public class Books {
 		this.gatunek = gatunek;
 	}
 
-	public Books(Long id, String title, String author, String wyd, String iSBN, Double price, Integer stan,
+	public Books(Long id, String title, String author, Integer wyd, String iSBN, Double price, Integer stan,
 			Integer sklep, Integer lokalizacja, Set<Gatunek> gatunek) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.author = author;
 		this.wyd = wyd;
-		ISBN = iSBN;
+		ISBN = ISBN;
 		this.price = price;
 		this.stan = stan;
 		this.sklep = sklep;
@@ -72,7 +83,7 @@ public class Books {
 		super();
 	}
 
-	public Books(String title, String author, String wyd, String iSBN, Double price, Integer stan, Integer sklep,
+	public Books(String title, String author, Integer wyd, String iSBN, Double price, Integer stan, Integer sklep,
 			Integer lokalizacja) {
 		super();
 		this.title = title;
@@ -109,11 +120,11 @@ public class Books {
 		this.author = author;
 	}
 
-	public String getWyd() {
+	public Integer getWyd() {
 		return wyd;
 	}
 
-	public void setWyd(String wyd) {
+	public void setWyd(Integer wyd) {
 		this.wyd = wyd;
 	}
 

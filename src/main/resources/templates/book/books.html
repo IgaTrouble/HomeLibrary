@@ -22,7 +22,7 @@
 				<th>Przeczytana</th>
 				<th>Więcej</th>
 				<th th:if="${isLogin}">Edit</th>
-				<th th:if="${isAdmin}">Delete</th>
+				<th th:if="${isAdmin}"><img src="/delete.jpg"/>Delete</th>
 			</tr>
 			
 			<tr th:each="book,s : ${books}">

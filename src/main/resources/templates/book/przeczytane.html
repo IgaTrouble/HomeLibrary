@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Lista</title>
+<div th:replace="fragment/headerinc ::head"></div>
+
+</head>
+<body>
+	<header>
+		<div th:replace="fragment/header :: header"></div>
+	</header>
+	<div th:if="${not #lists.isEmpty(przeczytane)}">
+		<div class="container">
+			<h1>Lista książek przeczytanych</h1>
+			<table class="table table-striped">
+				<tr>
+					<th>LP</th>
+					<th>Tytuł</th>
+					<th>Autor</th>
+					<th>Opis</th>
+					<th>Data przeczytania</th>
+					<th th:if="${isLogin}">Edit</th>
+				</tr>
+
+				<tr th:each="przecz,s : ${przeczytane}">
+				<!-- <td th:text="${page.number-1}*${page.size}+${s.count}"></td>  -->
+					<td th:text="${przecz.book.title}"></td>
+					<td th:text="${przecz.book.author}"></td>
+
+					<td th:text="${przecz.opis}"></td>
+					<td th:text="${przecz.data}"></td>
+					<td><a th:href="${'/book/' + przecz.id}">Widok </a></td>
+					<td th:if="${isLogin}"><a th:href="${'/przeczytane/edit/' + przecz.id}">Edycja</a></td>
+
+				</tr>
+			</table>
+		</div>
+		<div th:if="${ #lists.isEmpty(przeczytane)}">Domowa Biblioteczka nie
+			zawiera żadnych książek</div>
+		<!-- Pagination Bar -->
+	
+	</div>
+	<footer>
+		<div th:replace="fragment/footer :: footer"></div>
+	</footer>
+</body>
+</html>

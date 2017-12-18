@@ -10,4 +10,8 @@ public interface OsobaRepository extends JpaRepository<Osoby, Integer> {
 	Osoby findOneByLogin(String login);
 	
 	List <Osoby> findAll();
+	
+	
+	
+	
 }

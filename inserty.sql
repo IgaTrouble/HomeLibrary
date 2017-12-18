@@ -5,6 +5,9 @@ insert into stan(stan) values ("w domu"), ("pożyczona"), ("oddana"), ("prezent"
 insert into osoby(name, last, login, pass, active) values ("Iga", "Konińska", "iga.koninska@gmail.com", "admin", 1), 
 ("Alicja", "Konińska", "miga5@wp.pl", "kolnierz5", 1);
 insert into osoba_rola(id_osoby, id_roli) values (1, 1), (2,2);
+insert into przeczytana values (1, 1, 1, "2017-02-07", 0, "porywająca");
+
+
 insert into wydawnictwo(name_wyd) values ("Format"),
 ("Babaryba"),
 ("Pascal"),

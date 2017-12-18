@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
@@ -46,6 +47,30 @@ public class Osoby {
 		inverseJoinColumns = @JoinColumn(name="id_roli", referencedColumnName="id_roli"))
 	private Set<Role> rola;
 	
+	@OneToMany(mappedBy="osoba")
+	private Set<Przeczytana> przeczytana;
+	
+	
+	
+	public Set<Role> getRola() {
+		return rola;
+	}
+
+
+	public void setRola(Set<Role> rola) {
+		this.rola = rola;
+	}
+
+
+	public Set<Przeczytana> getPrzeczytana() {
+		return przeczytana;
+	}
+
+
+	public void setPrzeczytana(Set<Przeczytana> przeczytana) {
+		this.przeczytana = przeczytana;
+	}
+
 
 	public Osoby() {
 		super();
