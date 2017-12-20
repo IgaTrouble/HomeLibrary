@@ -17,10 +17,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import pl.ja.model.Books;
+import pl.ja.model.Wydawnictwo;
+import pl.ja.repository.WydawnictwoRepository;
 import pl.ja.security.AuthenticationComponent;
 import pl.ja.service.BibService;
 import pl.ja.service.GatunekService;
 import pl.ja.service.OsobaService;
+import pl.ja.service.WydawnictwoService;
 
 
 @Controller
@@ -31,14 +34,16 @@ public class BibController {
 	private GatunekService gatunekService;
 	private OsobaService osobaService;
 	private AuthenticationComponent authentication;
+	private WydawnictwoService wydawnictwoService;
 	
 	@Autowired
 	public BibController(BibService bibService, GatunekService gatunekService, 
-			AuthenticationComponent authentication, OsobaService osobaService) {
+			AuthenticationComponent authentication, OsobaService osobaService, WydawnictwoService wydawnictwoService) {
 		this.bibService = bibService;
 		this.gatunekService = gatunekService;
 		this.authentication = authentication;
 		this.osobaService = osobaService;
+		this.wydawnictwoService = wydawnictwoService;
 	}
 	
 	@RequestMapping("/books")
@@ -76,13 +81,14 @@ public class BibController {
 	@GetMapping("/{id}")
 	public String view(@PathVariable Long id, Model model) {
 		model.addAttribute("books", bibService.getBooksById(id));
-		return "books/view";
+		return "book/view";
 	}
 
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable Long id, Model model) {
 		model.addAttribute("books", bibService.getBooksById(id));
 		model.addAttribute("allGatunek", gatunekService.listAllGatunek());
+		model.addAttribute("wydawnictwo", wydawnictwoService.toString());
 		return "book/addBook";
 	};
 

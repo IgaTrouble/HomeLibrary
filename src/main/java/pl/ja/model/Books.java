@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -28,6 +29,7 @@ public class Books {
 	private String title;
 	@NotEmpty(message="{pl.ja.notEmpty}")
 	private String author;
+//kolumna mapowana nie może być taka sama jak w tabeli?
 	private Integer wyd;
 	private String ISBN;
 	private Double price;
@@ -45,9 +47,19 @@ public class Books {
 	private Set<Przeczytana> przeczytana;
 	
 	
+	@ManyToOne
+	@JoinColumn(name="id_wyd", nullable = false)
+	private Wydawnictwo wydawnictwo = new Wydawnictwo();
 	
 	
-	
+	public Wydawnictwo getWydawnictwo() {
+		return wydawnictwo;
+	}
+
+	public void setWydawnictwo(Wydawnictwo wydawnictwo) {
+		this.wydawnictwo = wydawnictwo;
+	}
+
 	public Set<Przeczytana> getPrzeczytana() {
 		return przeczytana;
 	}
@@ -180,6 +192,25 @@ public class Books {
 		this.title = title;
 		this.author = author;
 		this.gatunek = gatunek;
+	}
+
+
+	public Books(Long id, String title, String author, Integer wyd, String iSBN, Double price, Integer stan,
+			Integer sklep, Integer lokalizacja, Set<Gatunek> gatunek, Set<Przeczytana> przeczytana,
+			Wydawnictwo wydawnictwo) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.author = author;
+		this.wyd = wyd;
+		ISBN = iSBN;
+		this.price = price;
+		this.stan = stan;
+		this.sklep = sklep;
+		this.lokalizacja = lokalizacja;
+		this.gatunek = gatunek;
+		this.przeczytana = przeczytana;
+		this.wydawnictwo = wydawnictwo;
 	}
 	
 	

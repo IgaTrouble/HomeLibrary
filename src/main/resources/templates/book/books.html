@@ -18,6 +18,7 @@
 				<th>LP</th>
 				<th>Tytuł</th>
 				<th>Autor</th>
+				<th>Wydawnictwo</th>
 				<th>Gatunek</th>
 				<th>Przeczytana</th>
 				<th>Więcej</th>
@@ -30,6 +31,7 @@
 				<!-- <td th:text="${book.id}"></td> -->
 				<td th:text="${book.title}"></td>
 				<td th:text="${book.author}"></td>
+				<td th:text="${book.wydawnictwo.name}"> </td>
 				<td>
 				<p th:each="gatunek: ${book.gatunek}" th:text="${gatunek.gatunek}"> Gatunek </p>
 				</td>

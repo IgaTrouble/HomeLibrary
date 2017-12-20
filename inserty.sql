@@ -5,8 +5,6 @@ insert into stan(stan) values ("w domu"), ("pożyczona"), ("oddana"), ("prezent"
 insert into osoby(name, last, login, pass, active) values ("Iga", "Konińska", "iga.koninska@gmail.com", "admin", 1), 
 ("Alicja", "Konińska", "miga5@wp.pl", "kolnierz5", 1);
 insert into osoba_rola(id_osoby, id_roli) values (1, 1), (2,2);
-insert into przeczytana values (1, 1, 1, "2017-02-07", 0, "porywająca");
-
 
 insert into wydawnictwo(name_wyd) values ("Format"),
 ("Babaryba"),
@@ -74,7 +72,7 @@ insert into wydawnictwo(name_wyd) values ("Format"),
 ("In Rock");
 select * from wydawnictwo;
 select * from books;
-insert into books(title, author, wyd, ISBN, price) values ("Szczęśliwi rodzice","Laetitia Bourget, Emmanuelle Houdart",1,"9788361488330",26.30),
+insert into books(title, author, id_wyd, ISBN, price) values ("Szczęśliwi rodzice","Laetitia Bourget, Emmanuelle Houdart",1,"9788361488330",26.30),
 ("Naciśnij mnie","Hervé Tullet",2," 9788362965175",21.31),
 ("Kuba. Pascal 360°","Filip Jacobson",3," 978-83-7642-618-1",28.43),
 ("Syn","Philipp Meyer",4," 9788379763993",35.56),
@@ -322,5 +320,5 @@ insert into books(title, author, wyd, ISBN, price) values ("Szczęśliwi rodzice
 ("Gala-Dali","Carmen Domingo",17," 978-83-8031-654-6",26.30);
 insert into gatunek(gatunek) values ("biografia"), ("reportaż");
 insert into books_gat values (241, 1), (241, 2), (242, 1);
-
+insert into przeczytana values (1, "2017-02-07",0, "porywająca", 1, 1);
 select * from books_gat;
