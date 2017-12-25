@@ -8,32 +8,9 @@
 <body>
 <header>
 		<div th:replace="fragment/header :: header"></div>
-	</header>
-	<h1>HOME</h1>
-	<a href="/login"> Logowanie</a>
-	<br />
-	<a href="/rejestracja"> Rejestracja</a>
-	<br />
-	<a href="/book/books"> Lista Książek</a>
-	<br />
-	<div th:if="${isAdmin}">
-	<a href="/admin/config"> Konfiguracja</a>
-	<a href="/admin/osoby">Osoby</a>
-	
-	</div>
-	<br />
-	<div th:if="${isLogin}">
-		<p th:text="${osobyLogin}" />
-		<a href="/book/addBook">Dodaj książkę</a>
-		<a href="/book/przeczytane">Pokaż przeczytane</a>
-		
-		<br />
-		<form th:action="@{/logout}" method="post">
-
-			<input type="submit" value="Logout" />
-
-		</form>
-	</div>
+</header>
+<p> Kto czyta książki żyje podwójnie. </p>
+<p> Witaj na stronie domowej biblioteczki. Jest to platforma zarządzająca zasobem książek będacych w posiadaniu pewnej polskiej rodziny</p>
 		<footer>
 		<div th:replace="fragment/footer :: footer"></div>
 	</footer>

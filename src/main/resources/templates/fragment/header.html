@@ -19,25 +19,28 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#" th:href="@{/}">Domowa Biblioteczka</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#" th:href="@{/}">Home</a></li>
-                <li><a href="#" th:href="@{/login}">Zaloguj</a></li>
-                <li><a href="#" th:href="@{/rejestracja}">Rejestracja</a></li>
+                <li th:if="not ${isLogin}"><a href="#" th:href="@{/login}">Zaloguj</a></li>
+                <li th:if="not ${isLogin}"><a href="#" th:href="@{/rejestracja}">Rejestracja</a></li>
                 <li><a href="#" th:href="@{/book/books}">Książki</a></li>
-              <spam th:if="${isLogin}"> <p th:text="${osobyLogin}" />
-				<li> <a href="/book/addBook">Dodaj książkę</a> </li>
-				<li> <a href="/book/przeczytane">Pokaż przeczytane</a> </li>
-				<form th:action="@{/logout}" method="post"> <input type="submit" value="Logout" />
-				</form>
-			  </spam>
-			  <div th:if="${isAdmin}">
-				<li> <a href="/admin/config"> Konfiguracja</a> </li>
-				<li> <a href="/admin/osoby">Osoby</a> </li>
-			  </div>
+              <li th:if="${isLogin}" > <a href="/book/addBook"> Dodaj książkę</a> </li>
+				<li th:if="${isLogin}"> <a href="/book/przeczytane">Pokaż przeczytane</a> </li>
+				<li th:if="${isLogin}"> <form th:action="@{/logout}" method="post"> <input type="submit" value="Logout" />
+					</form> </li>
+				<li th:if="${isLogin}"> <a th:text="${osobyLogin}"></a> </li>
+
+		
+				<li th:if="${isAdmin}"> <a href="/admin/config"> Konfiguracja</a> </li>
+				<li th:if="${isAdmin}"> <a href="/admin/osoby">Osoby</a> </li>
+			 
 			  
             </ul>
         </div>

@@ -30,7 +30,7 @@ public class Books {
 	@NotEmpty(message="{pl.ja.notEmpty}")
 	private String author;
 //kolumna mapowana nie może być taka sama jak w tabeli?
-	private Integer wyd;
+//	private Integer wyd;
 	private String ISBN;
 	private Double price;
 	private Integer stan;
@@ -82,7 +82,7 @@ public class Books {
 		this.id = id;
 		this.title = title;
 		this.author = author;
-		this.wyd = wyd;
+//		this.wyd = wyd;
 		ISBN = ISBN;
 		this.price = price;
 		this.stan = stan;
@@ -100,7 +100,7 @@ public class Books {
 		super();
 		this.title = title;
 		this.author = author;
-		this.wyd = wyd;
+//		this.wyd = wyd;
 		ISBN = iSBN;
 		this.price = price;
 		this.stan = stan;
@@ -131,7 +131,7 @@ public class Books {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-
+/*
 	public Integer getWyd() {
 		return wyd;
 	}
@@ -139,7 +139,7 @@ public class Books {
 	public void setWyd(Integer wyd) {
 		this.wyd = wyd;
 	}
-
+*/
 	public String getISBN() {
 		return ISBN;
 	}
@@ -182,7 +182,7 @@ public class Books {
 
 	@Override
 	public String toString() {
-		return "Books [id=" + id + ", title=" + title + ", author=" + author + ", wyd=" + wyd + ", ISBN=" + ISBN
+		return "Books [id=" + id + ", title=" + title + ", author=" + author  + ", ISBN=" + ISBN
 				+ ", price=" + price + ", stan=" + stan + ", sklep=" + sklep + ", lokalizacja=" + lokalizacja
 				+ ", gatunek=" + gatunek + "]";
 	}
@@ -202,7 +202,7 @@ public class Books {
 		this.id = id;
 		this.title = title;
 		this.author = author;
-		this.wyd = wyd;
+	//	this.wyd = wyd;
 		ISBN = iSBN;
 		this.price = price;
 		this.stan = stan;

@@ -3,13 +3,18 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Login</title>
+<div th:replace="fragment/headerinc ::head"></div>
 </head>
 <body>
+	<header>
+		<div th:replace="fragment/header :: header"></div>
+	</header>
 <h1> Użytkownicy Domowej Biblioteczki </h1>
 <p> docelowo pogląd kto się kiedy logował ewentualnie zrzut z errorow jak się da </p>
 
 	<table class ="osoby">
 		<tr>
+			<th>Lp.</th>
 			<th>Imię</th>
 			<th>Nazwisko</th>
 			<th>Login</th>
@@ -54,5 +59,8 @@
 			</ul>
 		</div>
 	</div>
+		<footer>
+		<div th:replace="fragment/footer :: footer"></div>
+	</footer>
 </body>
 </html>
