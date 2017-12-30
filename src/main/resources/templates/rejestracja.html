@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <title>Login</title>
+<div th:replace="fragment/headerinc ::head"></div>
 </head>
 <body>
+<div th:replace="fragment/header :: header"></div>
 	<h1>Strona Rejestracji</h1>
 	<form th:action="@{/rejestracja}" method="post" th:object="${osoby}">
 

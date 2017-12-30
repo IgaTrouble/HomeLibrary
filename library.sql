@@ -1,5 +1,5 @@
 
-drop database library;
+#drop database library;
 create database library;
 use library;
 
@@ -12,6 +12,9 @@ CREATE TABLE osoby (
     active boolean, 
     PRIMARY KEY (id_osoby)
 );
+
+#select * from osoby;
+#select * from role;
 
 create table lokalizacja (
 id_lok int auto_increment,

@@ -58,7 +58,7 @@ public class LoginController {
 		}
 		Osoby savedOsoba = osobaService.addUserwithRoleUser(osoby);
 		System.out.println("Zapisano nową osobę");
-		model.addAttribute("successMesage", "Poprawnie założyłeś konto, zostałeś zapisany w Domowej bibliotece");
+		model.addAttribute("successMessage", "Poprawnie założyłeś konto, zostałeś zapisany w Domowej bibliotece");
 		model.addAttribute("osoby", new Osoby());
 		return "rejestracja";
 	}

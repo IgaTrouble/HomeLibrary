@@ -320,5 +320,7 @@ insert into books(title, author, id_wyd, ISBN, price) values ("Szczęśliwi rodz
 ("Gala-Dali","Carmen Domingo",17," 978-83-8031-654-6",26.30);
 insert into gatunek(gatunek) values ("biografia"), ("reportaż");
 insert into books_gat values (241, 1), (241, 2), (242, 1);
-insert into przeczytana values (1, "2017-02-07",0, "porywająca", 1, 1);
+insert into przeczytana values (1, 1, 1, '2017-04-07', 0, "porywająca");
 select * from books_gat;
+select * from books;
+select * from przeczytana;
