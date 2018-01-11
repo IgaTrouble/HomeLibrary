@@ -9,6 +9,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import pl.ja.model.Books;
@@ -25,6 +26,9 @@ public class OsobaService {
 	private OsobaRepository osobaRepository;
 	private RolaRepository rolaRepository;
 	private PrzeczytanaRepository przeczytanaRepository;
+	
+	@Autowired
+	private BCryptPasswordEncoder bCrtyptPasswordEncoder;
 
 	@Autowired
 	public OsobaService(OsobaRepository osobaRepository, RolaRepository rolaRepository,
@@ -41,6 +45,7 @@ public class OsobaService {
 		role.add(rola);
 		osoby.setRole(role);
 		osoby.setActive(true);
+		osoby.setPass(bCrtyptPasswordEncoder.encode(osoby.getPass()));
 		return osobaRepository.save(osoby);
 	}
 

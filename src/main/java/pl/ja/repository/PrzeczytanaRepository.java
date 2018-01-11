@@ -6,5 +6,4 @@ import pl.ja.model.Przeczytana;
 
 public interface PrzeczytanaRepository extends JpaRepository<Przeczytana, Integer> {
 
-
 }

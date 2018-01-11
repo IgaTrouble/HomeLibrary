@@ -8,7 +8,7 @@ CREATE TABLE osoby (
     name varchar (25) NOT NULL,
     last varchar(25) NOT NULL,
     login varchar(25) NOT NULL,
-    pass varchar(15) NOT NULL,
+    pass varchar(65) NOT NULL,
     active boolean, 
     PRIMARY KEY (id_osoby)
 );

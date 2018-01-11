@@ -23,7 +23,8 @@
 				<th>Więcej</th>
 				<th th:if="${isLogin}">Przeczytane</th>
 				<th th:if="${isLogin}">Edit</th>
-				<th th:if="${isAdmin}"><img src="/delete.jpg" width="10%" height="10%"/>Delete</th>
+				<th th:if="${isAdmin}">Delete</th>
+				<!-- <img src="/delete.jpg" width="20%" height="20%"/> obrazek usun książkę-->
 			</tr>
 			
 			<tr th:each="book,s : ${books}">
@@ -36,7 +37,7 @@
 				<p th:each="gatunek: ${book.gatunek}" th:text="${gatunek.gatunek}"> Gatunek </p>
 				</td>
 				<td><a th:href="${'/book/' + book.id}">Widok </a></td>
-				<td  th:if="${isLogin}"><a th:text="${book.przeczytana}">Przeczytane</a></td>
+				<td  th:if="${isLogin}"><p th:text="${book.isPrzeczytana(osobyLogin)}">Przeczytane</p></td>
 				
 				<td  th:if="${isLogin}"><a th:href="${'/book/edit/' + book.id}">Edycja</a></td>
 				<td  th:if="${isAdmin}"><a th:href="${'/book/delete/' + book.id}">Usuń książkę</a></td>

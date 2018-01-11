@@ -324,3 +324,9 @@ insert into przeczytana values (1, 1, 1, '2017-04-07', 0, "porywająca");
 select * from books_gat;
 select * from books;
 select * from przeczytana;
+select *from role;
+select * from osoby;
+
+use blog;
+select * from user;
+

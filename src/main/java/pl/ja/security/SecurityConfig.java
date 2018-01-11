@@ -15,9 +15,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private DataSource dataSource;
 	
-/*	@Autowired
+	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	*/
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication()
@@ -26,8 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				+ "inner join osoba_rola ur on ur.id_osoby=u.id_osoby "
 				+ "inner join role r on r.id_roli=ur.id_roli "
 				+ "where u.login=?")
-			.dataSource(dataSource);
-		//	.passwordEncoder(bCryptPasswordEncoder);
+			.dataSource(dataSource)
+			.passwordEncoder(bCryptPasswordEncoder);
 	}
 
 	@Override

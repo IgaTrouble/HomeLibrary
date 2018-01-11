@@ -214,6 +214,13 @@ public class Books {
 	}
 	
 	
-	
+	public boolean isPrzeczytana(String login) {
+		for (Przeczytana przeczytanaObj : przeczytana) {
+			if(przeczytanaObj.getOsoba().getLogin().equals(login)) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 }
