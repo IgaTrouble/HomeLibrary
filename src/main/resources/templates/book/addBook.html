@@ -7,8 +7,11 @@
 
 </head>
 <body>
-<div th:replace="fragment/header :: header"></div>
-<h1>	Dodawanie książek </h1>
+<header>
+	<div th:replace="fragment/header :: header"></div>
+</header>
+<div class = "container">
+<h1>Dodawanie książek </h1>
 	<form th:action="@{/book/addBook}" method="post" th:object="${books}">
 	<p>
 		<label th:if="${#fields.hasErrors('title')}" th:errors="*{title}"> </label><br/>
@@ -27,16 +30,15 @@
 				th:text="${gatunek.gatunek}">Gatunek</label></li>
 		</ul>
 		</p>
-		
-		
+			
 		<p>
 			<button type="submit" >Dodaj książkę</button>
 		</p>
 	</form>
-	
+
 	<span th:utext="${successMessage}"></span>
 
-	
+	</div>	
 	
 	
 </body>

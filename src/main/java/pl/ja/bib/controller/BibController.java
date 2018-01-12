@@ -62,6 +62,11 @@ public class BibController {
 	
 	@GetMapping("/addBook")
 	public String addBook(Model model) {
+		model.addAttribute("isLogin", !authentication.isAnonymous());
+		if (!authentication.isAnonymous()) {
+			model.addAttribute("osobyLogin", authentication.loginUser());
+			model.addAttribute("isAdmin", authentication.isAdmin());
+		}
 		model.addAttribute("books", new Books());
 		model.addAttribute("allGatunek", gatunekService.listAllGatunek());
 		return "book/addBook";

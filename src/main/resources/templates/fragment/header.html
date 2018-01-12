@@ -33,7 +33,7 @@
                 <li><a href="#" th:href="@{/book/books}">Książki</a></li>
               <li th:if="${isLogin}" > <a href="/book/addBook"> Dodaj książkę</a> </li>
 				<li th:if="${isLogin}"> <a href="/book/przeczytane">Pokaż przeczytane</a> </li>
-				<li th:if="${isLogin}"> <form th:action="@{/logout}" method="post"> <input type="submit" value="Logout" />
+				<li th:if="${isLogin}"> <form th:action="@{/logout}" method="post"> <input type="submit" value="Logout" style="margin :10px 0px 0px" />
 					</form> </li>
 				<li th:if="${isLogin}"> <a th:text="${osobyLogin}"></a> </li>
 

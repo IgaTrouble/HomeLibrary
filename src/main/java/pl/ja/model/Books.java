@@ -214,13 +214,13 @@ public class Books {
 	}
 	
 	
-	public boolean isPrzeczytana(String login) {
+	public String isPrzeczytana(String login) {
 		for (Przeczytana przeczytanaObj : przeczytana) {
 			if(przeczytanaObj.getOsoba().getLogin().equals(login)) {
-				return true;
+				return "tak";
 			}
 		}
-		return false;
+		return "nie";
 	}
 
 }

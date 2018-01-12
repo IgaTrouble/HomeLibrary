@@ -47,7 +47,7 @@
 		</div>
 		<div th:if="${ #lists.isEmpty(books)}"> Domowa Biblioteczka nie zawiera żadnych książek </div>
 		<!-- Pagination Bar -->
-		<div th:fragment='paginationbar'>
+		<div class="container" th:fragment='paginationbar'>
 			<div>
 				<ul class='pagination pagination-centered'>
 					<li th:class="${page.firstPage}?'disabled':''"><span
